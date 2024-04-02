@@ -1,4 +1,7 @@
 //import express and express router as shown in lecture code and worked in previous labs.  Import your data functions from /data/movies.js that you will call in your routes below
+import express from "express";
+
+const router = express.Router();
 
 router.route('/').get(async (req, res) => {
   //code here for GET will render the home handlebars file
@@ -13,3 +16,4 @@ router.route('/movie/:id').get(async (req, res) => {
 });
 
 //export router
+export default router;
