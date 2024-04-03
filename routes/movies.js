@@ -18,8 +18,8 @@ router.route('/searchmovies').post(async (req, res) => {
   //code here for POST this is where your form will be submitting searchMoviesByName and then call your data function passing in the 
   //searchMoviesByName and then rendering the search results of up to 20 Movies.
   try {
-    req.body = helper.checkString(req.body);
-    const result = await searchMoviesByName(req.body);
+    req.body.searchMoviesByName = helper.checkString(req.body.searchMoviesByName);
+    const result = await searchMoviesByName(req.body.searchMoviesByName);
     res.render("movieSearchResults", {movies: result});
   } catch (error) {
     res.status(404).json(error.message);

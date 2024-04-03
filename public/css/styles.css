@@ -1,1 +1,5 @@
 /*This file should have 10 CSS rulesets */
+img.searchResultImage {
+    width: 75px;
+    height: 117px;
+}

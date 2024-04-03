@@ -18,5 +18,9 @@ The title of the document should be "Movies Found". You should have the title se
     <main>
         <ol>
             {{#each movies}}
+            <li>
+                <a href="/movie/{{this.imdbID}}">{{this.Title}} <br> <img class="searchResultImage" alt="{{this.Title}} Poster" src="{{this.Poster}}"></a>
+            </li>
+            {{/each}}
         </ol>
     </main>
