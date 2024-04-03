@@ -8,9 +8,23 @@ export const searchMoviesByName = async (title) => {
   */
   title = helper.checkString(title);
 
-  const { page1 } = await axios.get(`http://www.omdbapi.com/?apikey=CS546&s=${title}`); //array
-  const { page2 } = await axios.get(`http://www.omdbapi.com/?apikey=CS546&s=${title}&page=2`); //array
-  const results = page1.join(page2);
+  const page1 = await axios.get(`http://www.omdbapi.com/?apikey=CS546&s=${title}`); //array
+  const page2 = await axios.get(`http://www.omdbapi.com/?apikey=CS546&s=${title}&page=2`); //array
+
+  if(page1.data.Response === "False") {
+    throw new Error(`No movies found under ${title}`);
+  }
+
+  const page1list = page1.data.Search;
+  let results;
+
+  if(page2.data.Response === "True") {
+    const page2list = page2.data.Search;
+    results = page1list.concat(page2list);
+  }
+  else {
+    results = page1list;
+  }
 
   return results;
 };

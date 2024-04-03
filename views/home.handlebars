@@ -7,3 +7,16 @@ Your page should reference a CSS file, /public/css/styles.css; this file should 
 
 
  -->
+
+ <title>Movie Finder</title>
+ <h1>Movie Finder</h1>
+ <main>
+    <p>
+        This website allows you to search for movies by name or by imdb id. This can be done through the form below.
+    </p>
+    <form method="post" action="/searchmovies">
+        <input type="text" name="searchMoviesByName" id="searchMoviesByName">
+        <label for="searchMoviesByName">Search Movies By Name</label>
+        <input type="submit" value="Search">
+    </form>
+ </main>
