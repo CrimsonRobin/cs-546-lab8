@@ -8,7 +8,7 @@ const router = express.Router();
 router.route('/').get(async (req, res) => {
   //code here for GET will render the home handlebars file
   try {
-    return res.status(200).render("home");
+    return res.status(200).render("home", {title: "Movie Finder"});
   } catch (e) {
     return res.status(500).json({error: e.message});
   }
@@ -20,13 +20,13 @@ router.route('/searchmovies').post(async (req, res) => {
   try {
     req.body.searchMoviesByName = helper.checkString(req.body.searchMoviesByName);
   } catch (e) {
-    return res.status(400).render("error", {class: "error", error: e.message});
+    return res.status(400).render("error", {title: "Movie Finder", class: "error", error: e.message});
   }
   try {
     const result = await searchMoviesByName(req.body.searchMoviesByName);
-    return res.status(200).render("movieSearchResults", {searchMoviesByName: req.body.searchMoviesByName, movies: result});
+    return res.status(200).render("movieSearchResults", {title: "Movies Found", searchMoviesByName: req.body.searchMoviesByName, movies: result});
   } catch (e) {
-    return res.status(404).render("error", {class: "not-found", error: e.message});
+    return res.status(404).render("error", {title: "Movie Finder", class: "not-found", error: e.message});
   }
 
 });
@@ -36,9 +36,9 @@ router.route('/movie/:id').get(async (req, res) => {
   try {
     req.params.id = helper.checkString(req.params.id);
     const movie = await searchMovieById(req.params.id);
-    return res.status(200).render("movieById", {movie: movie});
+    return res.status(200).render("movieById", {title: movie.Title, movie: movie});
   } catch (e) {
-    return res.status(404).render("error", {class: "error", error: e.message});
+    return res.status(404).render("error", {title: "Movie Finder", class: "error", error: e.message});
   }
 });
 
