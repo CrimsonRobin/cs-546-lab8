@@ -1,14 +1,14 @@
 const exportedMethods = {
     checkString(str) {
         if(!str) {
-            throw new Error(`${str} is not a string.`);
+            throw new Error(`Given input contains no text.`);
         }
         if(typeof str !== "string") {
-            throw new Error(`${str} is not a string.`);
+            throw new Error(`Given input contains no text.`);
         }
         str = str.trim();
         if(str.length === 0) {
-            throw new Error(`${str} is empty.`);
+            throw new Error(`Given input contains no text.`);
         }
 
         return str;

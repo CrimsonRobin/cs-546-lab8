@@ -12,7 +12,7 @@ export const searchMoviesByName = async (title) => {
   const page2 = await axios.get(`http://www.omdbapi.com/?apikey=CS546&s=${title}&page=2`); //array
 
   if(page1.data.Response === "False") {
-    throw new Error(`No movies found under ${title}`);
+    throw new Error(`We're sorry, but no results were found for ${title}.`);
   }
 
   const page1list = page1.data.Search;
@@ -36,6 +36,10 @@ export const searchMovieById = async (id) => {
   id = helper.checkString(id);
 
   const { data } = await axios.get(`http://www.omdbapi.com/?apikey=CS546&i=${id}`);
+
+  if(data.Response === "False") {
+    throw new Error(`No movie found with the given id: ${id}`);
+  }
 
   return data;
 };

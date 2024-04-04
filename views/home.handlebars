@@ -9,14 +9,16 @@ Your page should reference a CSS file, /public/css/styles.css; this file should 
  -->
 
  <title>Movie Finder</title>
- <h1>Movie Finder</h1>
  <main>
-    <p>
-        This website allows you to search for movies by name or by imdb id. This can be done through the form below.
-    </p>
-    <form method="post" action="/searchmovies">
-        <label for="searchMoviesByName">Search Movies By Name</label> <br>
-        <input type="text" name="searchMoviesByName" id="searchMoviesByName"> <br><br>
-        <input type="submit" value="Search">
-    </form>
+    <div class="handlebar">
+        <h1>Movie Finder</h1>
+        <p class="important">
+        This website allows you to search for movies by title through the form below. Once you search, you will see up to 20 matching results that contain the keyword you entered.
+        </p>
+        <form method="post" action="/searchmovies">
+            <label for="searchMoviesByName">Search Movies By Name</label> <br>
+            <input type="text" name="searchMoviesByName" id="searchMoviesByName">
+            <input type="submit" value="Search">
+        </form>
+    </div>
  </main>

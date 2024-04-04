@@ -3,3 +3,77 @@ img.searchResultImage {
     width: 75px;
     height: 117px;
 }
+
+h1 {
+    color: crimson;
+}
+
+h2 {
+    color: green;
+}
+
+h3 {
+    color: goldenrod;
+}
+
+h4 {
+    color: darkturquoise;
+}
+
+div.handlebar {
+    text-align: center;
+    color: white;
+}
+
+body {
+    background-color: black;
+}
+
+label, li {
+    color: white;
+    font-size: large;
+}
+
+p.important {
+    font-size: large;
+    text-decoration: underline;
+}
+
+p.not-found {
+    color: aqua;
+}
+
+p.error {
+    color: cadetblue;
+}
+
+a.movieLinks {
+    text-decoration: none;
+}
+
+dt {
+    color: lightblue;
+    font-style: italic;
+}
+
+dd {
+    color: blueviolet;
+}
+
+ol {
+    display: inline-block;
+    text-align: left;
+}
+
+table.my_coolratings_table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid blue;
+}
+
+th, td {
+    border: 5px solid blue;
+    text-align: left;
+    vertical-align: bottom;
+}
